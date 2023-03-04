@@ -17,7 +17,7 @@ using UnityEngine.UI;
         public string NameCity;
         public int BaseDemand;
 
-        public string _saveKey = "NameCity";                    // уникальный ID локации
+        public string _saveKey = "NameCity";                    // СѓРЅРёРєР°Р»СЊРЅС‹Р№ ID Р»РѕРєР°С†РёРё
         private void Awake()
         {
         Load();
@@ -41,9 +41,9 @@ using UnityEngine.UI;
                   BarProduct.fillAmount += 1 / (float)(BaseDemand * _lvlProductBread);
                }
                CurrentDemand.text = _currentDemand.ToString();
-            }                  // Хлеб
+            }                  // РҐР»РµР±
 
-            else if (product.sprite == Player.Meat.sprite)
+            else if (product.sprite == Player.Meat.sprite)              // СЃРѕР±С‹С‚РёРµ РґР»СЏ РєР»РёРєР° РїРѕ Р»РѕРєР°С†РёРё
             {
                _click = 1 + (Player._lvlMeat / 5);
                if (_currentDemand < _click)
@@ -58,7 +58,7 @@ using UnityEngine.UI;
                 BarProduct.fillAmount += 1 / (float)(BaseDemand * _lvlProductMeat);
                }
                CurrentDemand.text = _currentDemand.ToString();
-            }             // Мясо
+            }             // РњСЏСЃРѕ
 
             else if (product.sprite == Player.Textile.sprite)
             {
@@ -75,14 +75,14 @@ using UnityEngine.UI;
                    BarProduct.fillAmount += 1 / (float)(BaseDemand * _lvlProductTextile);
                 }
                 CurrentDemand.text = _currentDemand.ToString();
-            }          // Ткань
+            }          // РўРєР°РЅСЊ
             Player._gold.text = $"{PlayerCharacter.PlayerGold}$";
             if (_currentDemand == 0) { UpgradeLvLProductCity(product); }
 
         Save();
-        }             // событие для клика по локации
+        }             
 
-        void UpgradeLvLProductCity(Image product)
+        void UpgradeLvLProductCity(Image product)                             // РЈР»СѓС‡С€РµРЅРёРµ СѓСЂРѕРІРЅСЏ РїСЂРѕРґСѓРєС†РёРё Р»РѕРєР°С†РёРё
         {
             if (product.sprite == Player.Bread.sprite)
             {
@@ -100,9 +100,9 @@ using UnityEngine.UI;
             }
             BarProduct.fillAmount = 0;
             _currentProduct.sprite = NextProductImage(Random.Range(1, 4));
-        }            // повышение уровня товаров
+        }            
 
-        Sprite NextProductImage(int no)
+        Sprite NextProductImage(int no)                            //   СЂР°Р±РѕС‚Р° РЅР°Рґ СЃРїСЂР°Р№С‚Р°РјРё РїСЂРѕРґСѓРєС†РёРё Р»РѕРєР°С†РёРё
         {
             Image nextImage = _currentProduct;
 
@@ -128,7 +128,7 @@ using UnityEngine.UI;
             }
 
             return nextImage.sprite;
-        }                      // работа со спрайтами
+        }                      
 
 
         public void Load()
@@ -152,7 +152,7 @@ using UnityEngine.UI;
 
         }
 
-        private SaveDate.CityProfile GetSaveCityCharacters()
+        private SaveDate.CityProfile GetSaveCityCharacters()                      // СЃРѕС…СЂР°РЅСЏРµРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р»РѕРєР°С†РёРё
         {
         var data = new SaveDate.CityProfile()
         {
@@ -164,5 +164,5 @@ using UnityEngine.UI;
             Bar = BarProduct.fillAmount,
         };               
             return data;
-        }                   // сохраняемые параметры локации
+        }                   
     }
